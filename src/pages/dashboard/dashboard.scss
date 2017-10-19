@@ -1,0 +1,122 @@
+
+.today-earning {
+    text-align: center;
+    font-size: 20px!important;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.top-title {
+    background-color: map-get($colors, primary);
+  }
+#earning-value-container {
+    text-align: center;
+    .earning-value-header {
+        display: inline-block;
+        width: 80%;
+        margin: auto;
+        padding: 5px;
+        font-size: 14px;
+        text-align: center;          
+        color: map-get($colors, dark);
+        border-radius: 4px 4px 0px 0px;
+        border-bottom: 3px solid #f38527;
+    }
+    .earning-value {
+        font-size: 13px;
+        text-align: center;
+        padding-top: 10px;
+    }
+}
+#coin-converter-container {
+    text-align: center;
+    .coin-converter-header {
+        display: inline-block;
+        width: 98%;
+        margin: auto;
+        padding: 12px;
+        font-size: 16px;
+        text-align: center;
+        background-color: map-get($colors, secondary);
+        color: #ffffff;
+        border-radius: 4px 4px 0 0;
+        border-bottom: 1px solid rgba(0,0,0,0.3);
+    }
+    .coin-converter {
+        font-size: 13px;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .coin-converter:nth-child(0), .coin-converter:nth-child(2), .coin-converter:nth-child(4), .coin-converter:nth-child(6)  {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}
+
+
+
+
+@mixin circle($size) {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - #{$size/2});
+    top: calc(50% - #{$size/2});
+    width: $size;
+    height: $size;
+  }
+  
+  $size: 200px;
+  .progress-pie-chart {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+    position: relative;
+    &.gt-50 {
+      background-color: #81CE97;
+    }
+  }
+  .ppc-progress {
+    @include circle($size);
+    clip: rect(0, $size, $size, #{$size/2});
+    .ppc-progress-fill {
+      @include circle($size);
+      clip: rect(0, #{$size/2}, $size, 0);
+      background: #81CE97;
+      transform: rotate(60deg);
+    }
+    .gt-50 & {
+      clip: rect(0, #{$size/2}, $size, 0);
+      .ppc-progress-fill {
+        clip: rect(0, $size, $size, #{$size/2});
+        background: #E5E5E5;
+      }
+    }
+  }
+  .ppc-percents {
+    @include circle(#{$size/1.15});
+    background: #fff;
+    text-align: center;
+    display: table;
+    span {
+      display: block;
+      font-size: 2.6em;
+      font-weight: bold;
+      color: #81CE97;
+    }
+  }
+  .pcc-percents-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  
+  
+  body {
+    font-family: Arial;
+    background: #f7f7f7;
+  }
+  .progress-pie-chart {
+    margin: 50px auto 0;
+  }

@@ -1,0 +1,8 @@
+{
+  "name": "NavigateIonic",
+  "app_id": "screenshot",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

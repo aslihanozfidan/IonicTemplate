@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title [navPush]="informationRoot"></ion-title>
+        <ion-title text-center>Information</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content id="information-container" padding>
+    <ion-card>
+        <ion-list>
+            <ion-item>
+                <ion-input type="text" placeholder="Name Surname"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="email" placeholder="Extra Email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" placeholder="Telephone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="password" placeholder="Password"></ion-input>
+            </ion-item>
+            <button ion-button block color="success">SAVE</button>
+        </ion-list>
+    </ion-card>
+</ion-content>

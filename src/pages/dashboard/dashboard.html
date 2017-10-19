@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>  
+  <ion-card>    
+      <ion-item>
+        <h2 padding text-center>Welcome Marty McFly!</h2>
+      </ion-item>
+       
+      <ion-card-content>
+        <p class="today-earning">Today's Earning: 0.0005 BTC</p>
+      </ion-card-content>
+
+      <ion-grid>
+        <ion-row id="earning-value-container">
+          <ion-col col-4><p class="earning-value-header">Time</p><p class="earning-value">5 Day</p></ion-col>
+          <ion-col col-4><p class="earning-value-header">Amount</p><p class="earning-value">459</p></ion-col>
+          <ion-col col-4><p class="earning-value-header">Earning</p><p class="earning-value">9878</p></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <ion-card>     
+      <ion-item padding text-center>
+        Current Performance 
+       
+        <div class="progress-pie-chart" data-percent="43">
+          <div class="ppc-progress">
+            <div class="ppc-progress-fill"></div>
+          </div>
+          <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+              <span>43%</span>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>      
+      <ion-grid>
+        <ion-row id="coin-converter-container">
+          <ion-col col-4>
+            <p class="coin-converter-header">$</p>
+            <p class="coin-converter" *ngFor="let item of dolar">
+                {{item}} 
+            </p>
+          </ion-col>
+          <ion-col col-4>
+            <p class="coin-converter-header">€</p>
+            <p class="coin-converter" *ngFor="let item of euro">
+                {{item}}
+            </p>
+          </ion-col>
+          <ion-col col-4>
+            <p class="coin-converter-header">₺</p>
+            <p class="coin-converter" *ngFor="let item of lira">
+                {{item}} 
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+</ion-content>
