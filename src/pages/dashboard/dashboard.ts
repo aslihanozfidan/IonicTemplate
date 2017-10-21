@@ -9,11 +9,19 @@ export class DashboardPage implements OnInit {
   dolar = [];
   euro = [];
   lira = [];
-  
-  constructor(public navCtrl: NavController,  
-              private dashboardService: DashboardService) {}  
- 
-  ngOnInit() {  
+
+  constructor(public navCtrl: NavController,
+    private dashboardService: DashboardService) { }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+  ngOnInit() {
     this.dashboardService.getBtcRates().subscribe(val => this.lira[0] = "BTC/TRY");
     this.dashboardService.getBtcRates().subscribe(val => this.euro[0] = "BTC/EUR");
     this.dashboardService.getBtcRates().subscribe(val => this.dolar[0] = "BTC/USD");
@@ -38,6 +46,6 @@ export class DashboardPage implements OnInit {
 
 
 
-    
+
   }
 }

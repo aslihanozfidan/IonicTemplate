@@ -52,71 +52,53 @@
         text-decoration: underline;
     }
 }
-
-
-
-
-@mixin circle($size) {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    left: calc(50% - #{$size/2});
-    top: calc(50% - #{$size/2});
-    width: $size;
-    height: $size;
-  }
-  
-  $size: 200px;
-  .progress-pie-chart {
-    width: $size;
-    height: $size;
-    border-radius: 50%;
-    background-color: #E5E5E5;
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+@keyframes load{0%{stroke-dashoffset:0}}
+.progress {
     position: relative;
-    &.gt-50 {
-      background-color: #81CE97;
-    }
-  }
-  .ppc-progress {
-    @include circle($size);
-    clip: rect(0, $size, $size, #{$size/2});
-    .ppc-progress-fill {
-      @include circle($size);
-      clip: rect(0, #{$size/2}, $size, 0);
-      background: #81CE97;
-      transform: rotate(60deg);
-    }
-    .gt-50 & {
-      clip: rect(0, #{$size/2}, $size, 0);
-      .ppc-progress-fill {
-        clip: rect(0, $size, $size, #{$size/2});
-        background: #E5E5E5;
-      }
-    }
-  }
-  .ppc-percents {
-    @include circle(#{$size/1.15});
-    background: #fff;
+    display: inline-block;
+    padding: 0;
     text-align: center;
-    display: table;
-    span {
-      display: block;
-      font-size: 2.6em;
-      font-weight: bold;
-      color: #81CE97;
+    &>li {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        color: #93A2AC;
+        font-family: Lato;
+        margin: 2rem;
+        &:before {
+            content: attr(data-name);
+            position: absolute;
+            width: 100%;
+            bottom: -2rem;
+            font-weight:400;
+        }
+        &:after {
+            content: attr(data-percent);
+            position: absolute;
+            width: 100%;
+            top: 3.7rem;
+            left: 0;
+            font-size: 2rem;
+            text-align: center;
+        }
     }
-  }
-  .pcc-percents-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  
-  
-  
-  body {
-    font-family: Arial;
-    background: #f7f7f7;
-  }
-  .progress-pie-chart {
-    margin: 50px auto 0;
-  }
+    svg {
+        width: 10rem;
+        height: 10rem;
+        &:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: rotate(-90deg);
+        }
+        &:nth-child(2) path {
+            fill: none;
+            stroke-width: 25;
+            stroke-dasharray: 629;
+            stroke: #fff;
+            opacity:.9;
+            animation: load 10s;
+        }
+    }
+}
