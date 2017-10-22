@@ -43,9 +43,6 @@ export class DashboardPage implements OnInit {
     console.log(this.lira);
     console.log(this.euro);
     console.log(this.dolar);
-
-
-
-
   }
+  
 }
