@@ -13,6 +13,7 @@ import { InformationPage } from '../pages/information/information';
 import { WalletSettingsPage } from '../pages/walletsettings/walletsettings';
 import { WalletPage } from '../pages/wallet/wallet';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoadingPage } from '../pages/loading/loading';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,6 +21,7 @@ import { DashboardService } from '../pages/dashboard/dashboard.service';
 
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
+import { TabsService } from '../pages/tabs/tabs.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -31,7 +33,8 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     ChangePasswordPage,
     WalletSettingsPage,
     WalletPage,
-    InformationPage
+    InformationPage,
+    LoadingPage
   ],
   imports: [
     BrowserModule,
@@ -50,12 +53,14 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     ChangePasswordPage,
     WalletSettingsPage,
     WalletPage,
-    InformationPage
+    InformationPage,
+    LoadingPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DashboardService,
+    TabsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

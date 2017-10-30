@@ -9,9 +9,14 @@ import { ForgotPasswordPage } from '../forgotpassword/forgotpassword';
 })
 export class LoginPage {
   showRoot = true;
+  tab = document.querySelector('#tab');
   forgotPasswordRoot = ForgotPasswordPage;
   constructor(public navCtrl: NavController) {
 
+  }
+  
+  hideTab() {
+    //this.tab.setAttribute("style","display:none;");
   }
 
 }

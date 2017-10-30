@@ -11,7 +11,9 @@
         }
     }
     .login-bg {
-        background: url(/assets/img/login_bg.jpg) no-repeat top center fixed; 
+        display: block;
+        background: url(../assets/img/login_bg.jpg) no-repeat top center fixed; 
+        background-size: cover;
         -webkit-filter: blur(8px); /* Safari */
         filter: blur(8px);
         width: 120%;

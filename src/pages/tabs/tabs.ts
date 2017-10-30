@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { AccountPage } from '../account/account';
 import { DashboardPage } from '../dashboard/dashboard';
@@ -9,7 +9,7 @@ import { WalletPage } from '../wallet/wallet';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
+  
   dashboardRoot = DashboardPage;
   accountRoot = AccountPage;
   loginRoot = LoginPage;
