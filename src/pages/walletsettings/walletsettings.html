@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title [navPush]="informationRoot"></ion-title>
+        <ion-title text-center>Wallet Settings</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content id="walletsettings-container" padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to Refresh" refreshingSpinner="crescent" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-card>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-6 text-center>
+                    <b>Wallet Address</b>
+                </ion-col>
+                <ion-col col-6 text-center>
+                    <b>Delete</b>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6 text-center>7h8f8s4f8e4fss4f1vd</ion-col>
+                <ion-col col-6 text-center>
+                    <ion-icon ios="ios-trash" md="md-trash" color="danger"></ion-icon>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6 text-center>963f8s4f8e4fss4f1vd</ion-col>
+                <ion-col col-6 text-center>
+                    <ion-icon ios="ios-trash" md="md-trash" color="danger"></ion-icon>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6 text-center>213f8s4f8e4fss4f1vd</ion-col>
+                <ion-col col-6 text-center>
+                    <ion-icon ios="ios-trash" md="md-trash" color="danger"></ion-icon>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6 text-center>111f8s4f8e4fss4f1vd</ion-col>
+                <ion-col col-6 text-center>
+                    <ion-icon ios="ios-trash" md="md-trash" color="danger"></ion-icon>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6 text-center>111f8s4f8e4fss4f1vd</ion-col>
+                <ion-col col-6 text-center>
+                    <ion-icon ios="ios-trash" md="md-trash" color="danger"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>

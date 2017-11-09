@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull me Please" refreshingSpinner="crescent" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card>
+    <ion-item>
+      <h2 padding text-center>Welcome Marty McFly!</h2>
+    </ion-item>
+
+    <ion-card-content>
+      <p class="today-earning">Today's Earning: {{earningBtc}} BTC</p>
+    </ion-card-content>
+
+    <ion-grid>
+      <ion-row id="earning-value-container">
+        <ion-col col-4>
+          <p class="earning-value-header">Time</p>
+          <p class="earning-value">5 Day</p>
+        </ion-col>
+        <ion-col col-4>
+          <p class="earning-value-header">Amount</p>
+          <p class="earning-value">459</p>
+        </ion-col>
+        <ion-col col-4>
+          <p class="earning-value-header">Earning</p>
+          <p class="earning-value">9878</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card>
+    <ion-item padding text-center>
+      Current Performance
+      <!--  Container  -->
+      <br/>
+    <!--  <round-progress
+      [current]="50"
+      [max]="100"
+      [color]="'#47d8bb'"
+      [background]="'#eaeaea'"
+      [radius]="125"
+      [stroke]="20"
+      [semicircle]="true"
+      [rounded]="true"
+      [clockwise]="true"
+      [responsive]="true"
+      [duration]="800"
+      [animation]="'easeInOutQuart'"
+      [animationDelay]="0"></round-progress>
+      <div id="progress-amount">50%</div>-->
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-grid>
+      <ion-row id="coin-converter-container">
+        <ion-col col-4>
+          <p class="coin-converter-header">$</p>
+          <p class="coin-converter" *ngFor="let item of dolar">
+            {{item}}
+          </p>
+        </ion-col>
+        <ion-col col-4>
+          <p class="coin-converter-header">€</p>
+          <p class="coin-converter" *ngFor="let item of euro">
+            {{item}}
+          </p>
+        </ion-col>
+        <ion-col col-4>
+          <p class="coin-converter-header">₺</p>
+          <p class="coin-converter" *ngFor="let item of lira">
+            {{item}}
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>

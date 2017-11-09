@@ -1,5 +1,6 @@
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+<ion-tabs class="hide-on-keyboard-open" id="tab">
+ <!-- <ion-tab [root]="loginRoot" tabTitle="Login" tabIcon="md-speedometer"></ion-tab>-->
+  <ion-tab [root]="dashboardRoot" tabTitle="Dashboard" tabIcon="md-speedometer"></ion-tab>
+  <ion-tab [root]="walletRoot" tabTitle="Wallet" tabIcon="md-briefcase"></ion-tab>
+  <ion-tab [root]="accountRoot" tabTitle="My Account" tabIcon="md-person"></ion-tab>
 </ion-tabs>

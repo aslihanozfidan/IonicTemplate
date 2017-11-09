@@ -1,0 +1,13 @@
+#walletsettings-container {
+    ion-grid {
+        height: auto;
+        ion-row {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+        }
+        ion-row:last-child {
+            border-bottom: none;
+        }
+    }
+}

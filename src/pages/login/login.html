@@ -1,0 +1,20 @@
+<ion-content class="login-container" padding>
+  <ion-card>
+    <img src="../assets/img/vip_logo.png" id="logo" />
+    <ion-item>
+      <ion-label color="primary" stacked>E-mail</ion-label>
+      <ion-input type="email" placeholder="yourmail@mail.com" (focus)="hideTab()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Password</ion-label>
+      <ion-input type="password" placeholder="******" (focus)="hideTab()"></ion-input>
+    </ion-item>
+    <button ion-button full>LOGIN</button>
+    <button ion-button block outline icon-left color="dark" [navPush]="forgotPasswordRoot">
+      <ion-icon ios="ios-key" md="md-key"></ion-icon>
+      Forgot my password
+    </button>
+  </ion-card>
+  <div class="login-bg"></div>
+
+</ion-content>

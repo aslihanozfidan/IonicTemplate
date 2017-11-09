@@ -1,0 +1,42 @@
+#wallet-container {
+    .title-table {
+        font-weight: bold;
+        font-size: 15px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-bottom: 2px solid map-get($colors, primary);
+    }
+    .gain-text {
+      color: map-get($colors, primary);
+      font-weight: bold;
+      text-align: center;
+    }
+    .header-table {
+        border-bottom: 1px solid map-get($colors, primary);
+    }
+    .footer-table {
+        padding: 15px;
+        background: #e8e8e8;
+        color: #000;
+    }
+    ion-input {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    button {
+        padding: 25px;
+    }
+    ion-grid {
+        height: 250px;
+        overflow-y: scroll;
+        ion-row {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+        }
+        ion-row:last-child {
+            border-bottom: none;
+        }
+    }
+}
