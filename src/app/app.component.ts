@@ -14,16 +14,16 @@ import { LoadingPage } from '../pages/loading/loading';
 })
 export class MyApp implements OnInit {
   @ViewChild('nav') nav: NavController;
-  isLogin = true;
-  rootPage:any; 
-  
+  isLogin = false;
+  rootPage:any;
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
-  ngOnInit() {    
+  ngOnInit() {
     if(this.isLogin) {
       this.rootPage = TabsPage;
     } else {
@@ -31,5 +31,5 @@ export class MyApp implements OnInit {
     }
     this.nav.push(LoadingPage);
  }
-  
+
 }

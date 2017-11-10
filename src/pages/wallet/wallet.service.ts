@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class WalletService {
-    getUrl = "http://192.168.3.49:8080/WebApplication4/webresources/";
+    getUrl = "http://192.168.1.153:8080/WebApplication4/rest/";
     id = "1";
     constructor(private http: Http) {}
 

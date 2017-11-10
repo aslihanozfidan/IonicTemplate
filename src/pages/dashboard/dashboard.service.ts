@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DashboardService {
     url = "https://api.coinbase.com/v2/exchange-rates?currency=";
-    getUrl = "http://192.168.3.49:8080/WebApplication4/webresources/";
+    getUrl = "http://192.168.1.153:8080/WebApplication4/rest/";
     id = "1";
     constructor(private http: Http) {}
 
@@ -37,5 +37,13 @@ export class DashboardService {
                 let data = res.json();
                 return data;
             });
+    }
+    getToken() {
+      return this.http.get(this.getUrl + 'token')
+          .map(res => {
+              let data = res.json();
+              console.log("token " + data);
+              return data;
+          });
     }
 }

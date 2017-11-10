@@ -13,6 +13,7 @@ export class DashboardPage implements OnInit {
   lira = [];
   earningArray = [];
   earningBtc: number;
+  token: string;
   constructor(public navCtrl: NavController,
     private dashboardService: DashboardService) { }
 
@@ -29,6 +30,10 @@ export class DashboardPage implements OnInit {
       .subscribe(val => {
         this.earningArray[0] = val;
         this.earningBtc = val.earningbtc;
+      });
+    this.dashboardService.getToken()
+      .subscribe(val => {
+        this.token = val;
       });
     this.lira[0] = "BTC/TRY";
     this.euro[0] = "BTC/EUR";

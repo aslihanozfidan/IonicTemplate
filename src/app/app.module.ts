@@ -23,8 +23,11 @@ import { WalletService } from '../pages/wallet/wallet.service';
 import { InformationService } from '../pages/information/information.service';
 import { ChangePasswordService } from '../pages/changepassword/changepassword.service';
 import { WalletSettingsService } from '../pages/walletsettings/walletsettings.service';
-
+import { LoginService } from '../pages/login/login.service';
 import { TabsService } from '../pages/tabs/tabs.service';
+
+import { AuthService } from '../pages/auth/auth.service';
+import { HttpClientService } from '../pages/auth/httpclient.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -64,7 +67,13 @@ import { TabsService } from '../pages/tabs/tabs.service';
     SplashScreen,
     DashboardService,
     WalletService,
+    InformationService,
+    ChangePasswordService,
+    WalletSettingsService,
+    LoginService,
     TabsService,
+    AuthService,
+    HttpClientService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
