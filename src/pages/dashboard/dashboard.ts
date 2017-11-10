@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DashboardService } from '../../pages/dashboard/dashboard.service';
+
+import { DashboardService } from './dashboard.service';
+
 @Component({
   selector: 'page-dashboard',
   templateUrl: 'dashboard.html'

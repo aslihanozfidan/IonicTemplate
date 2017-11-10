@@ -58,11 +58,11 @@
     </ion-card>
     <ion-card>
         <h5 text-center padding>You can transfer your gain to your wallet in here.</h5>
-        <h5 class="gain-text">Your Gain: {{gainAmount}}$</h5>
+        <h5 class="gain-text">Your Balance: {{gainAmount}}$</h5>
         <h4 class="title-table">Your Earning Transfer to Your Wallet</h4>
         <ion-list>
             <ion-item>
-                <ion-input type="number" placeholder="{{gainAmount}}" disabled></ion-input>
+                <ion-input type="number" value="{{totalUnpaidDolar}}" disabled></ion-input>
             </ion-item>
             <!--<button ion-button block color="primary">All Gain</button>-->
             <button ion-button block color="success" (click)="requestPaymentToast()">Request Payment</button>
@@ -90,7 +90,7 @@
                 <ion-col col-3 text-center>Han Solo</ion-col>
                 <ion-col col-3 text-center>5sf47d5gtd5fg4d5f4g5df4g5g4df5g47df5g4df</ion-col>
                 <ion-col col-3 text-center>
-                    <ion-icon ios="ios-share-alt" md="md-share-alt" color="success"></ion-icon>
+                    <ion-icon ios="ios-share-alt" md="md-share-alt" color="success" id="{{walletData[0].id}}" (click)="transferWalletAddress($event)"></ion-icon>
                 </ion-col>
                 <ion-col col-3 text-center>
                     <ion-icon ios="ios-search" md="md-search" color="secondary"></ion-icon>
@@ -100,7 +100,7 @@
                 <ion-col col-3 text-center>Obi-Wan Kenobi</ion-col>
                 <ion-col col-3 text-center>sdfds86f47d867g86df7g86df7g86f7g86f5gf47h8</ion-col>
                 <ion-col col-3 text-center>
-                    <ion-icon ios="ios-share-alt" md="md-share-alt" color="success"></ion-icon>
+                    <ion-icon ios="ios-share-alt" md="md-share-alt" color="success" id="{{walletData[1].id}}" (click)="transferWalletAddress($event)"></ion-icon>
                 </ion-col>
                 <ion-col col-3 text-center>
                     <ion-icon ios="ios-search" md="md-search" color="secondary"></ion-icon>
@@ -113,12 +113,12 @@
         <h4 class="title-table">Your Earning Transfer to Another Wallet</h4>
         <ion-list>
             <ion-item>
-                <ion-input type="text" placeholder="Wallet Address" ></ion-input>
+                <ion-input type="text" placeholder="Wallet Address" [(ngModel)]="modelWalletAddress"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-input type="number" placeholder="Transfer Amount"></ion-input>
+                <ion-input type="number" placeholder="Transfer Amount" [(ngModel)]="modelTransferAmount"></ion-input>
             </ion-item>
-            <button ion-button block color="primary" (click)="getAllBalance()">All Balance</button>
+            <button ion-button block color="primary" (click)="getAllBalance()" >All Balance</button>
             <button ion-button block color="success">Transfer</button>
         </ion-list>
     </ion-card>

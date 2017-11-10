@@ -19,6 +19,10 @@ import { LoadingPage } from '../pages/loading/loading';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DashboardService } from '../pages/dashboard/dashboard.service';
+import { WalletService } from '../pages/wallet/wallet.service';
+import { InformationService } from '../pages/information/information.service';
+import { ChangePasswordService } from '../pages/changepassword/changepassword.service';
+import { WalletSettingsService } from '../pages/walletsettings/walletsettings.service';
 
 import { TabsService } from '../pages/tabs/tabs.service';
 @NgModule({
@@ -59,6 +63,7 @@ import { TabsService } from '../pages/tabs/tabs.service';
     StatusBar,
     SplashScreen,
     DashboardService,
+    WalletService,
     TabsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
