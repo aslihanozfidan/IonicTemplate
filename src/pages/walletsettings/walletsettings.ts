@@ -10,6 +10,12 @@ export class WalletSettingsPage {
   constructor(public navCtrl: NavController) {
 
   }
+
+  deleteWalletAsId(event) {
+    //POST event.target.id
+    console.log(event.target.id);
+  }
+
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
 
