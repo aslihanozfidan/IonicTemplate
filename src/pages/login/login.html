@@ -1,14 +1,14 @@
 <ion-content class="login-container" padding>
   <ion-card>
     <img src="../assets/img/vip_logo.png" id="logo" />
-    <form #f="ngForm" (ngSubmit)="onLogin()">
+    <form #f="ngForm" (ngSubmit)="onLogin($event)">
       <ion-item>
         <ion-label color="primary" stacked>E-mail</ion-label>
-        <ion-input type="email" placeholder="yourmail@mail.com" (focus)="hideTab()" name="email"></ion-input>
+        <ion-input type="email" placeholder="yourmail@mail.com" name="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label color="primary" stacked>Password</ion-label>
-        <ion-input type="password" placeholder="******" (focus)="hideTab()" name="password"></ion-input>
+        <ion-input type="password" placeholder="******" name="password"></ion-input>
       </ion-item>
       <button type="submit" ion-button full>LOGIN</button>
       <a ion-button block outline icon-left color="dark" [navPush]="forgotPasswordRoot">

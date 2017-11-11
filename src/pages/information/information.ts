@@ -1,4 +1,4 @@
-import { Component, ngOnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
@@ -9,7 +9,7 @@ import { InformationService } from './information.service';
   templateUrl: 'information.html'
 })
 export class InformationPage implements OnInit {
-  userData: Array<string> = {};
+  userData: Array<string>;
 
   constructor(public navCtrl: NavController,
               public toastCtrl: ToastController,

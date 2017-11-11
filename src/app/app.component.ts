@@ -7,6 +7,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { LoadingPage } from '../pages/loading/loading';
 
+import { LoginService } from '../pages/login/login.service';
+
 //import { TabsService } from '../pages/tabs/tabs.service';
 
 @Component({
@@ -14,21 +16,16 @@ import { LoadingPage } from '../pages/loading/loading';
 })
 export class MyApp implements OnInit {
   @ViewChild('nav') nav: NavController;
-  isLogin = false;
-  rootPage:any;
+  rootPage: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, loginService: LoginService) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
   ngOnInit() {
-    if(this.isLogin) {
-      this.rootPage = TabsPage;
-    } else {
-      this.rootPage = LoginPage;
-    }
+    this.rootPage = LoginPage;
     this.nav.push(LoadingPage);
  }
 

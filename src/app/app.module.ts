@@ -27,7 +27,7 @@ import { LoginService } from '../pages/login/login.service';
 import { TabsService } from '../pages/tabs/tabs.service';
 
 import { AuthService } from '../pages/auth/auth.service';
-import { HttpClientService } from '../pages/auth/httpclient.service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -73,7 +73,6 @@ import { HttpClientService } from '../pages/auth/httpclient.service';
     LoginService,
     TabsService,
     AuthService,
-    HttpClientService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
