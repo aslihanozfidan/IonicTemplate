@@ -17,6 +17,7 @@ import { LoginService } from '../pages/login/login.service';
 export class MyApp implements OnInit {
   @ViewChild('nav') nav: NavController;
   rootPage: any;
+  isLogin: boolean = true;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, loginService: LoginService) {
     platform.ready().then(() => {
@@ -25,8 +26,13 @@ export class MyApp implements OnInit {
     });
   }
   ngOnInit() {
-    this.rootPage = LoginPage;
+    if (this.isLogin) {
+      this.rootPage = TabsPage;
+    } else {
+      this.rootPage = LoginPage;
+    }
     this.nav.push(LoadingPage);
+
  }
 
 }

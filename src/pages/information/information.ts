@@ -9,7 +9,7 @@ import { InformationService } from './information.service';
   templateUrl: 'information.html'
 })
 export class InformationPage implements OnInit {
-  userData: Array<string>;
+  //userData: Array<string> = [id: '', firstname: '', email: '', phone: '', UTh: '', insertAt: ''];
 
   constructor(public navCtrl: NavController,
               public toastCtrl: ToastController,
@@ -18,13 +18,13 @@ export class InformationPage implements OnInit {
   ngOnInit(): void {
     this.informationService.getUserInformation()
       .subscribe(val => {
-        this.userData.id = val.id;
+      /*  this.userData.id = val.id;
         this.userData.firstname = val.firstname;
         this.userData.email = val.email;
         this.userData.phone = val.phone;
         this.userData.UTh = val.UTh;
         this.userData.insertAt = val.insertAt;
-        console.log(this.userData);
+        console.log(this.userData);*/
       });
   }
 /*  getUserInformation(event, field) {

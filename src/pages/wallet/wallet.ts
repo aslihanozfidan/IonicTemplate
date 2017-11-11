@@ -14,7 +14,7 @@ export class WalletPage {
   gainAmount: number = 1000;
   modelTransferAmount: number;
   modelWalletAddress: number;
-  walletData: Array<string> = [{id:"112", walletname: "Han Solo", walletaddress: "6df4gf6d54g65fd4g56fd4gf564gd" },{id:"224", walletname: "Obi-Wan Kenobi", walletaddress: "gfdgf8g7f8g7f8g78f7g8f787f87f" }];
+  walletData = [{id:"112", walletname: "Han Solo", walletaddress: "6df4gf6d54g65fd4g56fd4gf564gd" },{id:"224", walletname: "Obi-Wan Kenobi", walletaddress: "gfdgf8g7f8g7f8g78f7g8f787f87f" }];
   constructor(public navCtrl: NavController,
               public toastCtrl: ToastController) {
 

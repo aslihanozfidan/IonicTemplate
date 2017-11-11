@@ -17,8 +17,8 @@ interface LoginInformation {
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  isLogin: boolean = false;
-  rootPage: any;
+  /*isLogin: boolean = true;
+  rootPage: any;*/
   showRoot = true;
   tab = document.querySelector('#tab');
   forgotPasswordRoot = ForgotPasswordPage;
@@ -36,13 +36,13 @@ export class LoginPage {
     this.authService.login(this.loginInformation.email, this.loginInformation.password)
         .subscribe(
           res => {
-            this.isLogin = true;
-            this.rootPage = TabsPage;
+            /*this.isLogin = true;
+            this.rootPage = TabsPage;*/
             console.log(this.isLogin);
             console.log('login response= ' + res);
           },
           error => {
-            this.isLogin = false;
+            /*this.isLogin = false;*/
             console.log('login error' + error);
           }
         );
