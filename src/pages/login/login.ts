@@ -37,8 +37,8 @@ export class LoginPage {
         .subscribe(
           res => {
             /*this.isLogin = true;
-            this.rootPage = TabsPage;*/
-            console.log(this.isLogin);
+            this.rootPage = TabsPage;
+            console.log(this.isLogin);*/
             console.log('login response= ' + res);
           },
           error => {
