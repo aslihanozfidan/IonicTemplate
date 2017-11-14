@@ -7,8 +7,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { LoadingPage } from '../pages/loading/loading';
 
-import { LoginService } from '../pages/login/login.service';
-
+import { Token } from '../pages/login/token';
 //import { TabsService } from '../pages/tabs/tabs.service';
 
 @Component({
@@ -17,19 +16,22 @@ import { LoginService } from '../pages/login/login.service';
 export class MyApp implements OnInit {
   @ViewChild('nav') nav: NavController;
   rootPage: any;
-  isLogin: boolean = true;
+  isLogin: boolean;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, loginService: LoginService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
   ngOnInit() {
-    if (this.isLogin) {
+    //console.log("Token ="+ Token.getNesne().getToken());
+    //Token.getNesne().getToken();
+    if (Token.getNesne().getToken() !== undefined) {
       this.rootPage = TabsPage;
     } else {
       this.rootPage = LoginPage;
+      console.log("isLogin" + this.isLogin);
     }
     this.nav.push(LoadingPage);
 

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+
 import { MyApp } from './app.component';
 
 import { AccountPage } from '../pages/account/account';
@@ -15,6 +16,7 @@ import { WalletSettingsPage } from '../pages/walletsettings/walletsettings';
 import { WalletPage } from '../pages/wallet/wallet';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoadingPage } from '../pages/loading/loading';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
