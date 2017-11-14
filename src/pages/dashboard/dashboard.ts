@@ -31,10 +31,7 @@ export class DashboardPage implements OnInit {
         this.earningArray[0] = val;
         this.earningBtc = val.earningbtc;
       });
-    this.dashboardService.getToken()
-      .subscribe(val => {
-        this.token = val;
-      });
+
     this.lira[0] = "BTC/TRY";
     this.euro[0] = "BTC/EUR";
     this.dolar[0] = "BTC/USD";

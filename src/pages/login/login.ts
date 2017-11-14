@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 
 import { ForgotPasswordPage } from '../forgotpassword/forgotpassword';
 import { TabsPage } from '../tabs/tabs';
-
 import { AuthService } from '../auth/auth.service';
 import { LoginService } from './login.service';
 
@@ -30,7 +29,6 @@ interface LoginInformation {
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  @Output() tokenEvent:EventEmitter<boolean> = new EventEmitter();
   token: string;
   forgotPasswordRoot = ForgotPasswordPage;
   loginInformation: LoginInformation = {email: '', password: '', UTh: '', activationToken: '',
@@ -41,11 +39,7 @@ export class LoginPage {
               public authService: AuthService,
               public loginService: LoginService) {}
 
-  giveToken() {
-    if (this.tokenEvent !== undefined) {
-      
-    }
-  }
+
 
   onLogin(event) {
     this.loginInformation.email = event.target[0].value;
@@ -82,6 +76,8 @@ export class LoginPage {
             console.log(this.loginInformation.insertAt);
             if (this.loginInformation.activationToken) {
               console.log("ttttrue");
+              this.navCtrl.setRoot(TabsPage, {}, {animate: true, direction: 'forward'});
+          
               return true;
             } else {
               console.log("fffalse");
@@ -95,6 +91,7 @@ export class LoginPage {
             console.log('login error' + error);
           }
         );
+
   }
 
   getToken(event) {
