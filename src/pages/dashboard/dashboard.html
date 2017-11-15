@@ -11,7 +11,7 @@
   </ion-refresher>
   <ion-card>
     <ion-item>
-      <h2 padding text-center>Welcome Marty McFly!</h2>
+      <h2 padding text-center>Welcome {{userName}}!</h2>
     </ion-item>
 
     <ion-card-content>
@@ -22,15 +22,15 @@
       <ion-row id="earning-value-container">
         <ion-col col-4>
           <p class="earning-value-header">Time</p>
-          <p class="earning-value">5 Day</p>
+          <p class="earning-value">{{time}} Day</p>
         </ion-col>
         <ion-col col-4>
           <p class="earning-value-header">Investment</p>
-          <p class="earning-value">459</p>
+          <p class="earning-value">{{investment}}$</p>
         </ion-col>
         <ion-col col-4>
           <p class="earning-value-header">Earning</p>
-          <p class="earning-value">9878</p>
+          <p class="earning-value">{{earningTotal}}$</p>
         </ion-col>
       </ion-row>
     </ion-grid>

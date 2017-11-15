@@ -3,35 +3,27 @@ import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
 import { InformationService } from './information.service';
-
+import { Token } from '../login/token';
 @Component({
   selector: 'page-information',
   templateUrl: 'information.html'
 })
 export class InformationPage implements OnInit {
-  //userData: Array<string> = [id: '', firstname: '', email: '', phone: '', UTh: '', insertAt: ''];
+
+  userName: string;
+  email: string;
+  phone: string;
 
   constructor(public navCtrl: NavController,
               public toastCtrl: ToastController,
               private informationService: InformationService) {}
 
   ngOnInit(): void {
-    this.informationService.getUserInformation()
-      .subscribe(val => {
-      /*  this.userData.id = val.id;
-        this.userData.firstname = val.firstname;
-        this.userData.email = val.email;
-        this.userData.phone = val.phone;
-        this.userData.UTh = val.UTh;
-        this.userData.insertAt = val.insertAt;
-        console.log(this.userData);*/
-      });
+    this.userName = Token.getNesne().getUserName();
+    this.email = Token.getNesne().getEmail();
+    this.phone = Token.getNesne().getPhone();
   }
-/*  getUserInformation(event, field) {
-    this.userData.field = event.target.value;
-    console.log(this.userData.field);
-    console.log(this.userData);
-  }*/
+
   updateUserInformation() {
     //POST event.target.id
 

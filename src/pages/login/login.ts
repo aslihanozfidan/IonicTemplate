@@ -31,27 +31,25 @@ interface LoginInformation {
 export class LoginPage {
   token: string;
   forgotPasswordRoot = ForgotPasswordPage;
-  loginInformation: LoginInformation = {email: '', password: '', UTh: '', activationToken: '',
-                                        activeStatus: '', address: '', groupId: '', id: '',
-                                        firstname: '', lastname: '', username: '', phone: '', insertAt: ''};
+  loginInformation: LoginInformation = {email: "", password: "", UTh: "", activationToken: "",
+                                        activeStatus: "", address: "", groupId: "", id: "",
+                                        firstname: "", lastname: "", username: "", phone: "", insertAt: ""};
 
   constructor(public navCtrl: NavController,
               public authService: AuthService,
               public loginService: LoginService) {}
 
-
-
   onLogin(event) {
     this.loginInformation.email = event.target[0].value;
     this.loginInformation.password = event.target[1].value;
-    console.log(this.loginInformation.email);
-    console.log(this.loginInformation.password);
     this.authService.login(this.loginInformation.email, this.loginInformation.password)
         .subscribe(
           res => {
             Token.getNesne().setToken(res.activationToken);
-            console.log("Token ="+ Token.getNesne().getToken());
-            console.log('login response= ' + res);
+            Token.getNesne().setUserName(res.firstname);
+            Token.getNesne().setUserId(res.id);
+            Token.getNesne().setPhone(res.phone);
+            Token.getNesne().setEmail(res.email);
             this.loginInformation.UTh = res.UTh;
             this.loginInformation.activationToken = res.activationToken;
             this.loginInformation.activeStatus = res.activeStatus;
@@ -63,38 +61,18 @@ export class LoginPage {
             this.loginInformation.username = res.username;
             this.loginInformation.phone = res.phone;
             this.loginInformation.insertAt = res.insertAt;
-            console.log(this.loginInformation.UTh);
-            console.log(this.loginInformation.activationToken);
-            console.log(this.loginInformation.activeStatus);
-            console.log(this.loginInformation.address);
-            console.log(this.loginInformation.groupId);
-            console.log(this.loginInformation.id);
-            console.log(this.loginInformation.firstname);
-            console.log(this.loginInformation.lastname);
-            console.log(this.loginInformation.username);
-            console.log(this.loginInformation.phone);
-            console.log(this.loginInformation.insertAt);
             if (this.loginInformation.activationToken) {
-              console.log("ttttrue");
               this.navCtrl.setRoot(TabsPage, {}, {animate: true, direction: 'forward'});
-          
               return true;
             } else {
-              console.log("fffalse");
               return false;
             }
           },
           error => {
             /*this.isLogin = false;*/
             console.log("email ya da şifre yanlış");
-
             console.log('login error' + error);
           }
         );
-
-  }
-
-  getToken(event) {
-    return Token.getNesne().getToken();
   }
 }
