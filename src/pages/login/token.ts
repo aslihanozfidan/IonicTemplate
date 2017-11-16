@@ -49,10 +49,10 @@ export class Token {
     return this.phone;
   }
 
-  public setUTh(UTh: string):void {
+  public setUTh(UTh: number):void {
       this.UTh = UTh;
   }
-  public getUTh(): string {
+  public getUTh(): number {
     return this.UTh;
   }
 }
