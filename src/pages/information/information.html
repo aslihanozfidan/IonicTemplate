@@ -1,26 +1,26 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title [navPush]="informationRoot"></ion-title>
-        <ion-title text-center>Information</ion-title>
-    </ion-navbar>
+  <ion-navbar color="primary">
+    <ion-title [navPush]="informationRoot"></ion-title>
+    <ion-title text-center>Information</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content id="information-container" padding>
-    <ion-card>
-        <ion-list>
-            <ion-item>
-                <ion-input type="text" placeholder="Name Surname" value="{{userName}}" ></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="email" placeholder="Email" value="{{email}}" ></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="email" placeholder="Extra Email"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="text" placeholder="Telephone" value="{{phone}}" ></ion-input>
-            </ion-item>
-            <button ion-button block color="success" (click)="updateUserInformation()">SAVE</button>
-        </ion-list>
-    </ion-card>
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="Name Surname" value="{{userName}}" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="email" placeholder="Email" value="{{email}}" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="email" placeholder="Extra Email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Telephone" value="{{phone}}" ></ion-input>
+      </ion-item>
+      <button ion-button block color="success" (click)="updateUserInformation()">SAVE</button>
+    </ion-list>
+  </ion-card>
 </ion-content>

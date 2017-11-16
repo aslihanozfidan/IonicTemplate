@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-  //  getUrl = "http://192.168.1.153:8080/WebApplication4/rest/rest.users/token/";
     getUrl = "http://192.168.1.153:8080/GoodMinersAPI/rest/user/token";
 
     constructor(private http: Http) {}
@@ -14,6 +13,6 @@ export class AuthService {
               let headers = new Headers({ 'Content-Type': 'application/json' });
               let options = new RequestOptions({ headers: headers });
               return this.http.post(this.getUrl, body, options )
-              .map(res =>  res.json())
+                  .map(res =>  res.json())
           }
 }

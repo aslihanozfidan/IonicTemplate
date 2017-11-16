@@ -1,10 +1,11 @@
 export class Token {
-  private token: string;
-  private userId: string;
-  private userName: string;
-  private phone: string;
-  private email: string;
-  private static nesne: Token;
+    private token: string;
+    private userId: string;
+    private userName: string;
+    private phone: string;
+    private email: string;
+    private UTh: number;
+    private static nesne: Token;
 
   public static getNesne(): Token {
       if(this.nesne == null) {
@@ -46,5 +47,12 @@ export class Token {
   }
   public getPhone(): string {
     return this.phone;
+  }
+
+  public setUTh(UTh: string):void {
+      this.UTh = UTh;
+  }
+  public getUTh(): string {
+    return this.UTh;
   }
 }
