@@ -40,11 +40,11 @@
   </ion-card>
     <ion-card>
       <h5 text-center padding>You can transfer your gain to your wallet in here.</h5>
-      <h5 class="gain-text">Your Balance: {{gainAmount}}$</h5>
+      <h5 class="gain-text">Your Balance: {{gainAmount}} BTC</h5>
       <h4 class="title-table">Your Earning Transfer to Your Wallet</h4>
       <ion-list>
         <ion-item>
-          <ion-input type="number" value="{{totalUnpaidUsd}}" disabled></ion-input>
+          <ion-input type="number" value="{{totalUnpaidBtc}}" disabled></ion-input>
         </ion-item>
         <button ion-button block color="success" (click)="requestPaymentToast()">Request Payment</button>
       </ion-list>

@@ -19,7 +19,7 @@ export class WalletPage implements OnInit {
     unpaidEarning = [];
     totalUnpaidBtc: number = 0;
     totalUnpaidUsd: number = 0;
-    lastActions: [];
+    lastActions = [];
     walletData = [{id:"112", walletname: "Han Solo ", walletaddress: "6df4gf6d54g65fd4g56fd4gf564gd" },{id:"224", walletname: "Obi-Wan Kenobi", walletaddress: "gfdgf8g7f8g7f8g78f7g8f787f87f" }];
     constructor(public navCtrl: NavController,
                 public toastCtrl: ToastController,
