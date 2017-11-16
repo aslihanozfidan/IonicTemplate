@@ -50,6 +50,7 @@ export class LoginPage {
             Token.getNesne().setUserId(res.id);
             Token.getNesne().setPhone(res.phone);
             Token.getNesne().setEmail(res.email);
+            Token.getNesne().setUTh(res.UTh);
             this.loginInformation.UTh = res.UTh;
             this.loginInformation.activationToken = res.activationToken;
             this.loginInformation.activeStatus = res.activeStatus;

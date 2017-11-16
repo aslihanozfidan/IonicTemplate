@@ -4,6 +4,7 @@ export class Token {
   private userName: string;
   private phone: string;
   private email: string;
+  private UTh: number;
   private static nesne: Token;
 
   public static getNesne(): Token {
@@ -46,5 +47,12 @@ export class Token {
   }
   public getPhone(): string {
     return this.phone;
+  }
+
+  public setUTh(UTh: string):void {
+      this.UTh = UTh;
+  }
+  public getUTh(): string {
+    return this.UTh;
   }
 }
