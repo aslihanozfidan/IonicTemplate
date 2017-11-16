@@ -6,17 +6,15 @@ import { LoginPage } from '../login/login';
 import { WalletPage } from '../wallet/wallet';
 
 @Component({
-  templateUrl: 'tabs.html'
+    templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  dashboardRoot = DashboardPage;
-  accountRoot = AccountPage;
-  loginRoot = LoginPage;
-  walletRoot = WalletPage;
+    dashboardRoot = DashboardPage;
+    accountRoot = AccountPage;
+    loginRoot = LoginPage;
+    walletRoot = WalletPage;
 
 
-  constructor() {
-
-  }
+    constructor() {}
 }
