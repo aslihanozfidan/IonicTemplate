@@ -1,11 +1,11 @@
 export class Token {
-  private token: string;
-  private userId: string;
-  private userName: string;
-  private phone: string;
-  private email: string;
-  private UTh: number;
-  private static nesne: Token;
+    private token: string;
+    private userId: string;
+    private userName: string;
+    private phone: string;
+    private email: string;
+    private UTh: number;
+    private static nesne: Token;
 
   public static getNesne(): Token {
       if(this.nesne == null) {
