@@ -30,10 +30,12 @@ interface LoginInformation {
 })
 export class LoginPage {
     token: string;
+    errorValidate: boolean = false;
     forgotPasswordRoot = ForgotPasswordPage;
-    loginInformation: LoginInformation = {email: "", password: "", UTh: "", activationToken: "",
-                                          activeStatus: "", address: "", groupId: "", id: "",
-                                          firstname: "", lastname: "", username: "", phone: "", insertAt: ""};
+    loginInformation: LoginInformation = {
+       email: "", password: "", UTh: 0, activationToken: "", activeStatus: "", address: "",
+       groupId: "", id: "", firstname: "", lastname: "", username: "", phone: "", insertAt: "" };
+
 
     constructor(public navCtrl: NavController,
                 public authService: AuthService,
@@ -45,12 +47,14 @@ export class LoginPage {
         this.authService.login(this.loginInformation.email, this.loginInformation.password)
             .subscribe(
               res => {
+                  this.errorValidate = false;
                   Token.getNesne().setToken(res.activationToken);
                   Token.getNesne().setUserName(res.firstname);
                   Token.getNesne().setUserId(res.id);
                   Token.getNesne().setPhone(res.phone);
                   Token.getNesne().setEmail(res.email);
                   Token.getNesne().setUTh(res.UTh);
+                  Token.getNesne().setFirstName(res.firstname);
                   this.loginInformation.UTh = res.UTh;
                   this.loginInformation.activationToken = res.activationToken;
                   this.loginInformation.activeStatus = res.activeStatus;
@@ -62,6 +66,7 @@ export class LoginPage {
                   this.loginInformation.username = res.username;
                   this.loginInformation.phone = res.phone;
                   this.loginInformation.insertAt = res.insertAt;
+                  console.log(this.loginInformation.activationToken);
                   if (this.loginInformation.activationToken) {
                       this.navCtrl.setRoot(TabsPage, {}, {animate: true, direction: 'forward'});
                       return true;
@@ -70,6 +75,7 @@ export class LoginPage {
                   }
               },
               error => {
+                  this.errorValidate = true;
                   console.log("email ya da şifre yanlış");
                   console.log('login error' + error);
               }

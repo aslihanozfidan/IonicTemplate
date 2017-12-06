@@ -11,9 +11,16 @@ import { Token } from '../login/token';
 })
 export class InformationPage implements OnInit {
 
+    modelNameSurname: string;
+    modelEmailAdd: string;
+    id = Token.getNesne().getUserId();
     userName: string;
+    firstName: string;
     email: string;
     phone: string;
+    errorValidate: boolean = false;
+    succesValidate: boolean = false;
+    statusText: string;
 
     constructor(public navCtrl: NavController,
                 public toastCtrl: ToastController,
@@ -21,13 +28,31 @@ export class InformationPage implements OnInit {
 
     ngOnInit(): void {
         this.userName = Token.getNesne().getUserName();
+        this.firstName = Token.getNesne().getFirstName();
         this.email = Token.getNesne().getEmail();
         this.phone = Token.getNesne().getPhone();
+        console.log(this.firstName);
     }
 
     updateUserInformation() {
-      //POST event.target.id
-    }
+      console.log(this.modelNameSurname + "  " + this.modelEmailAdd);
+         this.informationService.postUpdateUserInformation(this.id, this.modelNameSurname, this.modelEmailAdd)
+             .subscribe(
+               res => {
+                   console.log(res + " updateUserInformation için ok");
+                   this.succesValidate = true;
+                   this.errorValidate = false;
+                   this.statusText = "Information was updated.";
+                   Token.getNesne().setFirstName(this.modelNameSurname);
+                   Token.getNesne().setEmail(this.modelEmailAdd);
+                 },
+               error => {
+                   console.log(error + " updateUserInformation için error");
+                   this.succesValidate = false;
+                   this.errorValidate = true;
+                   this.statusText = "The wallet was not deleted. Please try again.";
+             });
+     }
 
     changeInformationToast() {
         const toastInfo = this.toastCtrl.create({

@@ -1,3 +1,4 @@
+
 #wallet-container {
     .title-table {
         font-weight: bold;
@@ -7,11 +8,27 @@
         text-align: center;
         border-bottom: 2px solid map-get($colors, primary);
     }
-    .gain-text {
-      color: map-get($colors, primary);
-      font-weight: bold;
-      text-align: center;
+    #wallet-value-container {
+        text-align: center;
     }
+    .wallet-value-header {
+        display: inline-block;
+        width: 100%;
+        margin: auto;
+        padding: 5px;
+        font-size: 12px;
+        text-align: center;
+        font-weight: bold;
+        color: map-get($colors, dark);
+        border-radius: 4px 4px 0px 0px;
+        border-bottom: 3px solid #f38527;
+    }
+    .wallet-value {
+        font-size: 13px;
+        text-align: center;
+        padding-top: 10px;
+    }
+
     .header-table {
         border-bottom: 1px solid map-get($colors, primary);
     }
@@ -30,16 +47,31 @@
     button {
         padding: 25px;
     }
-    ion-grid {
-        height: 250px;
-        overflow-y: scroll;
-        ion-row {
-            padding-top: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #ddd;
-        }
-        ion-row:last-child {
-            border-bottom: none;
-        }
+    .error-validate {
+        width: 110%;
+        padding: 10px;
+        margin-left: -10%;
+        position: fixed;
+        bottom: 0px;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(173,0,0,1);
     }
+    .success-validate {
+        width: 110%;
+        padding: 10px;
+        margin-left: -10%;
+        position: fixed;
+        bottom: 0px;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(97,170,23,1);
+    }
+}
+
+.visible {
+  display: block;
+}
+.unvisible {
+  display: none;
 }

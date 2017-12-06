@@ -22,13 +22,15 @@
           <b>Delete</b>
         </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col col-4 text-center>Kurt Cobain</ion-col>
-          <ion-col col-4 text-center>7h8f8s4f8e4fss4f1vd</ion-col>
+        <ion-row *ngFor="let savedWallet of savedWallets">
+          <ion-col col-4 text-center>{{savedWallet.label}}</ion-col>
+          <ion-col col-4 text-center>{{savedWallet.walletAddress}}</ion-col>
           <ion-col col-4 text-center>
-              <ion-icon ios="ios-trash" md="md-trash" color="danger" id="1" (click)="deleteWalletAsId($event)"></ion-icon>
+              <ion-icon ios="ios-trash" md="md-trash" color="danger" id="{{savedWallet.id}}" (click)="walletHide($event)"></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>
   </ion-card>
+  <div class="error-validate" *ngIf="errorValidate">{{statusText}}</div>
+  <div class="success-validate" *ngIf="succesValidate">{{statusText}}</div>
 </ion-content>

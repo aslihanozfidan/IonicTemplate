@@ -1,6 +1,7 @@
 export class Token {
     private token: string;
     private userId: string;
+    private firstName: string;
     private userName: string;
     private phone: string;
     private email: string;
@@ -26,6 +27,13 @@ export class Token {
   }
   public getUserName(): string {
     return this.userName;
+  }
+
+  public setFirstName(firstName: string):void {
+      this.firstName = firstName;
+  }
+  public getFirstName(): string {
+    return this.firstName;
   }
 
   public setUserId(userId: string):void {

@@ -13,4 +13,26 @@
             border-bottom: none;
         }
     }
+    .error-validate {
+        width: 110%;
+        height: 35px;
+        padding: 10px;
+        margin-left: -10%;
+        position: fixed;
+        top: 0px;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(173,0,0,1);
+    }
+    .success-validate {
+        width: 110%;
+        height: 35px;
+        padding: 10px;
+        margin-left: -10%;
+        position: fixed;
+        top: 0px;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(97,170,23,1);
+    }
 }

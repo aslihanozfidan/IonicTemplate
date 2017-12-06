@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Notifications</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="notifications-container" padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to Refresh" refreshingSpinner="crescent" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let notification of notifications">
+      <p class="title">{{notification.title}}</p>
+      <p>{{notification.content}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

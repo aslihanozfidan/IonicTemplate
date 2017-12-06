@@ -1,10 +1,11 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title text-center>Account Settings</ion-title>
+  <ion-navbar>
+   <img id="logo" src="../assets/img/vip_logo.png">
+   <ion-icon ios="ios-notifications" md="md-notifications" [navPush]="notificationsRoot" float-right></ion-icon>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content id="account-container" padding>
   <ion-card>
     <ion-list>
       <button ion-item [navPush]="informationRoot">
@@ -22,6 +23,12 @@
       <button ion-item [navPush]="walletSettingsRoot">
         <ion-icon name="cash" item-start color="medium"></ion-icon>
         Wallet Settings
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" class="right-vertically" color="medium"></ion-icon>
+      </button>
+
+      <button ion-item [navPush]="invoicesRoot">
+        <ion-icon name="cash" item-start color="medium"></ion-icon>
+        Invoices
         <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" class="right-vertically" color="medium"></ion-icon>
       </button>
     </ion-list>

@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-navbar>
+   <img id="logo" src="../assets/img/vip_logo.png">
+   <ion-icon ios="ios-notifications" md="md-notifications" [navPush]="notificationsRoot" float-right></ion-icon>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull me Please" refreshingSpinner="crescent" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

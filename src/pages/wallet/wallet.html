@@ -1,6 +1,7 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title text-center>Wallet</ion-title>
+  <ion-navbar>
+   <img id="logo" src="../assets/img/vip_logo.png">
+   <ion-icon ios="ios-notifications" md="md-notifications" [navPush]="notificationsRoot" float-right></ion-icon>
   </ion-navbar>
 </ion-header>
 <ion-content id="wallet-container" padding>
@@ -8,129 +9,122 @@
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to Refresh" refreshingSpinner="crescent" refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-card>
-    <h4 class="title-table">Unpaid Gain</h4>
-    <ion-row class="header-table">
-      <ion-col col-4 text-center>
-        <b>BTC</b>
-      </ion-col>
-      <ion-col col-4 text-center>
-        <b>Date</b>
-      </ion-col>
-        <ion-col col-4 text-center>
-        <b>USD</b>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <p class="wallet-value-header">Your Wallet Address</p>
       </ion-col>
     </ion-row>
-    <ion-grid>
-      <ion-row *ngFor="let unpaid of unpaidEarning">
-        <ion-col col-4 text-center>{{unpaid.earningbtc}}</ion-col>
-        <ion-col col-4 text-center>{{unpaid.createDate.split('T')[0]}}</ion-col>
-        <ion-col col-4 text-center>{{unpaid.usdbtc}}</ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-row class="footer-table">
-      <ion-col col-4 text-center>
-        <b>Total:</b> {{totalUnpaidBtc}} BTC
-      </ion-col>
-      <ion-col col-4 text-center></ion-col>
-      <ion-col col-4 text-center>
-        <b>Total:</b> {{totalUnpaidUsd}}$
+    <ion-row>
+      <ion-col col-12 text-center>
+        {{walletAddress}}
       </ion-col>
     </ion-row>
-  </ion-card>
-    <ion-card>
-      <h5 text-center padding>You can transfer your gain to your wallet in here.</h5>
-      <h5 class="gain-text">Your Balance: {{gainAmount}} BTC</h5>
-      <h4 class="title-table">Your Earning Transfer to Your Wallet</h4>
-      <ion-list>
-        <ion-item>
-          <ion-input type="number" value="{{totalUnpaidBtc}}" disabled></ion-input>
-        </ion-item>
-        <button ion-button block color="success" (click)="requestPaymentToast()">Request Payment</button>
-      </ion-list>
-    </ion-card>
-
-    <ion-card>
-      <h4 class="title-table">Wallets</h4>
-      <ion-row class="header-table">
-        <ion-col col-3 text-center>
-          <b>Wallet Name</b>
-        </ion-col>
-        <ion-col col-3 text-center>
-          <b>Wallet Address</b>
-        </ion-col>
-        <ion-col col-3 text-center>
-          <b>Transfer</b>
-        </ion-col>
-        <ion-col col-3 text-center>
-          <b>Explain</b>
-        </ion-col>
-      </ion-row>
+    <ion-segment color="primary" [(ngModel)]="transferSegmentChanged" id="wallet-value-container">
+      <ion-segment-button value="gm-wallet">
+          <p class="wallet-value-header">Amount in Your Wallet</p>
+      </ion-segment-button>
+      <ion-segment-button value="mining-amount">
+        <p class="wallet-value-header">Your Mining Amount</p>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-row id="wallet-value-container">
+      <ion-col col-6>
+        <p class="wallet-value">{{btcWalletAmount}} BTC</p>
+      </ion-col>
+      <ion-col col-6>
+        <p class="wallet-value">{{totalUnpaidBtc}} BTC</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <section [ngSwitch]="transferSegmentChanged">
+    <section *ngSwitchCase="'mining-amount'">
       <ion-grid>
-        <ion-row>
-          <ion-col col-3 text-center>Han Solo</ion-col>
-          <ion-col col-3 text-center>5sf47d5gtd5fg4d5f4g5df4g5g4df5g47df5g4df</ion-col>
-          <ion-col col-3 text-center>
-          <ion-icon ios="ios-share-alt" md="md-share-alt" color="success" id="{{walletData[0].id}}" (click)="transferWalletAddress($event)"></ion-icon>
-        </ion-col>
-        <ion-col col-3 text-center>
-          <ion-icon ios="ios-search" md="md-search" color="secondary"></ion-icon>
-        </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-3 text-center>Obi-Wan Kenobi</ion-col>
-          <ion-col col-3 text-center>sdfds86f47d867g86df7g86df7g86f7g86f5gf47h8</ion-col>
-          <ion-col col-3 text-center>
-            <ion-icon ios="ios-share-alt" md="md-share-alt" color="success" id="{{walletData[1].id}}" (click)="transferWalletAddress($event)"></ion-icon>
-          </ion-col>
-          <ion-col col-3 text-center>
-            <ion-icon ios="ios-search" md="md-search" color="secondary"></ion-icon>
-          </ion-col>
-        </ion-row>
+        <ion-list>
+          <ion-row>
+            <ion-col col-12 text-center padding>If the wallet to transfer is saved, you can choose with select box of saved wallets.</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12 class="title-table">Transfer to Any Wallet From Your Mining</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              <ion-item text-left>
+                <ion-select [(ngModel)]="modelWalletAddress" cancelText="Cancel" interface="action-sheet" placeholder="Saved Wallets" col-12>
+                  <ion-option *ngFor="let savedWallet of savedWallets" value="{{savedWallet.walletAddress}}">{{savedWallet.label}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button block color="primary" [navPush]="addWalletRoot" text-left><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="transferFromMining">
+            <ion-col col-8>
+              <ion-item>
+                <ion-input type="number" placeholder="Transfer Amount" [(ngModel)]="modelTrasferMiningAmount"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button block color="primary" (click)="getAllMiningAmount()" >All Amount</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <button ion-button block color="success" (click)="postCoinTransactionInMining()" *ngIf="transferFromMining">Transfer</button>
+          </ion-row>
+        </ion-list>
       </ion-grid>
-    </ion-card>
-    <ion-card>
-      <h5 text-center padding>If the wallet to transfer is saved, you can push the transfer button in wallet table.</h5>
-      <h4 class="title-table">Your Earning Transfer to Another Wallet</h4>
-      <ion-list>
-        <ion-item>
-          <ion-input type="text" placeholder="Wallet Address" [(ngModel)]="modelWalletAddress"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="number" placeholder="Transfer Amount" [(ngModel)]="modelTransferAmount"></ion-input>
-        </ion-item>
-        <button ion-button block color="primary" (click)="getAllBalance()" >All Balance</button>
-        <button ion-button block color="success">Transfer</button>
-      </ion-list>
-    </ion-card>
+    </section>
 
-    <ion-card>
-      <h4 class="title-table">Last Actions</h4>
-      <ion-row class="header-table">
-        <ion-col col-2 text-center>
-          <b>Wallet From</b>
-        </ion-col>
-        <ion-col col-2 text-center>
-          <b>Wallet To</b>
-        </ion-col>
-        <ion-col col-3 text-center>
-          <b>Balance</b>
-        </ion-col>
-        <ion-col col-3 text-center>
-          <b>Date</b>
-        </ion-col>
-        <ion-col col-2 text-center>
-          <b>Action</b>
-        </ion-col>
-      </ion-row>
-      <ion-grid>
-        <ion-row *ngFor="let lastActions of lastActions">
-          <ion-col col-2 text-center>{{lastActions.walletFrom}}</ion-col>
-          <ion-col col-2 text-center>{{lastActions.walletTo}}</ion-col>
-          <ion-col col-3 text-center>977.49</ion-col>
-          <ion-col col-3 text-center>{{lastActions.TDate.split('T')[0]}}</ion-col>
-          <ion-col col-2 text-center><ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back" color="success"></ion-icon></ion-col>
-        </ion-row>
+    <section *ngSwitchCase="'gm-wallet'">
+      <ion-grid *ngIf="walletAddress != noWalletText">
+        <ion-list>
+          <ion-row>
+            <ion-col col-12 text-center padding>If the wallet to transfer is saved, you can choose with select box of saved wallets.</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12 class="title-table">Transfer to Any Wallet From Your Wallet</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              <ion-item text-left>
+                <ion-select [(ngModel)]="modelWalletAddress" cancelText="Cancel" interface="action-sheet" placeholder="Saved Wallets" col-12>
+                  <ion-option *ngFor="let savedWallet of savedWallets" value="{{savedWallet.walletAddress}}">{{savedWallet.label}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button block color="primary" [navPush]="addWalletRoot" text-left><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="transferFromWallet">
+            <ion-col col-8>
+              <ion-item>
+                <ion-input type="number" placeholder="Transfer Amount" [(ngModel)]="modelTransferAmount"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <button ion-button block color="primary" (click)="getAllBalance()">All Amount</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <button ion-button block color="success" (click)="postCoinTransactionInWallet()" *ngIf="transferFromWallet">Transfer</button>
+          </ion-row>
+        </ion-list>
       </ion-grid>
-    </ion-card>
+
+      <ion-grid *ngIf="walletAddress == noWalletText">
+        <ion-list>
+          <ion-row>
+            <ion-col col-12 text-center padding>You can create a GM Wallet in here.</ion-col>
+          </ion-row>
+          <ion-row>
+            <button ion-button block color="success" (click)="addGmWallet()">Add Gm Wallet</button>
+          </ion-row>
+        </ion-list>
+      </ion-grid>
+    </section>
+  </section>
+  <div class="error-validate" *ngIf="errorValidate">{{statusText}}</div>
+  <div class="succes-validate" *ngIf="succesValidate">{{statusText}}</div>
 </ion-content>

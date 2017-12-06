@@ -39,8 +39,9 @@ $colors: (
   danger:     #a81717,
   light:      #f4f4f4,
   dark:       #222,
-  success:       #63aa3a,
-  medium:       #777777
+  success:    #63aa3a,
+  medium:     #777777,
+  theme:      #23223d
 );
 
 .top-title {
@@ -49,6 +50,22 @@ $colors: (
 
 .right-vertically {
   float: right;
+}
+
+ion-header {
+  ion-navbar {
+    background-color: map-get($colors, theme);
+  }
+  img {
+    height: 35px;
+    width: auto;
+    padding-left: 20px;
+  }
+  ion-icon {
+    color: map-get($colors, dark);
+    font-size: 30px;
+    padding-right: 20px;
+  }
 }
 
 // App iOS Variables

@@ -1,6 +1,7 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title text-center>Dashboard</ion-title>
+  <ion-navbar>
+   <img id="logo" src="../assets/img/vip_logo.png">
+   <ion-icon ios="ios-notifications" md="md-notifications" [navPush]="notificationsRoot" float-right></ion-icon>
   </ion-navbar>
 </ion-header>
 
@@ -43,6 +44,7 @@
       Current Performance
       <!--  Container  -->
       <br/>
+
     <!--  <round-progress
       [current]="50"
       [max]="100"

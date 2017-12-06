@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title [navPush]="walletRoot"></ion-title>
+    <ion-title text-center>Add Wallet</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content id="addwallet-container" padding>
+  <form #f="ngForm" (ngSubmit)="addWallet($event)">
+    <ion-grid>
+      <ion-list>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-input type="text" placeholder="Wallet Name"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-input type="text" placeholder="Wallet Address"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <button ion-button block color="primary" >Add Wallet</button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-grid>
+  </form>
+  <div class="error-validate" *ngIf="errorValidate">{{statusText}}</div>
+  <div class="success-validate" *ngIf="succesValidate">{{statusText}}</div>
+</ion-content>

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-    getUrl = "http://192.168.1.153:8080/GoodMinersAPI/rest/user/token";
+    getUrl = "http://192.168.1.52:8080/GoodMinersAPI/rest/user/token";
 
     constructor(private http: Http) {}
          login(email, password) {

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+   <img id="logo" src="../assets/img/vip_logo.png">
+   <ion-icon ios="ios-notifications" md="md-notifications" [navPush]="notificationsRoot" float-right></ion-icon>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull me Please" refreshingSpinner="crescent" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card>
+    <ion-grid>
+      <ion-row class="header-row">
+        <ion-col col-6>
+          Wallet Name
+        </ion-col>
+        <ion-col col-6>
+          Transaction Date
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-row *ngFor="let action of lastActions" class="actions">
+    <ion-col col-6>
+      {{action.label}}
+    </ion-col>
+    <ion-col col-6>
+      {{action.date}}
+    </ion-col>
+  </ion-row>
+</ion-content>
